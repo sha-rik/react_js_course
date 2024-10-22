@@ -1,41 +1,46 @@
-import './App.css';
-import Item from './components/Item';
-import ItemDate from './components/ItemDate';
-function App() {
-  const response=[
-    {
-      ItemName: "Nirma",
-      ItemDay: "12th",
-      ItemMonth: "July",
-      ItemYear: "2001"
-    },
-    {
-      ItemName: "surg excel",
-      ItemDay: "12th",
-      ItemMonth: "July",
-      ItemYear: "2001"
-    },
-    {
-      ItemName: "honda",
-      ItemDay: "12th",
-      ItemMonth: "june",
-      ItemYear: "1993"
-    }
-  ];
-  return (
-    <>
-    <ItemDate day={response[0].ItemDay} month={response[0].ItemMonth} year={response[0].ItemYear}></ItemDate>
-    <Item name={response[0].ItemName}></Item>
-    <ItemDate day={response[1].ItemDay} month={response[1].ItemMonth} year={response[1].ItemYear}></ItemDate>
-    <Item name={response[1].ItemName}></Item>
-    <ItemDate day={response[2].ItemDay} month={response[2].ItemMonth} year={response[2].ItemYear}></ItemDate>
-    <Item name={response[2].ItemName}></Item>
-    
-    
-    <div className="App">
+import React from 'react';
 
+import Products from './components/Products';
+import NewProduct from './components/NewProduct';
+
+const App = () => {
+  const products = [
+    {
+      id: 'p1',
+      title: 'Nirma',
+      amount: 100,
+      date: new Date(2021, 8, 10),
+    },
+    { 
+      id: 'p2', 
+      title: 'Sirf Excel', 
+      amount: 200, 
+      date: new Date(2021, 2, 2) },
+    {
+      id: 'p3',
+      title: 'Tide',
+      amount: 130,
+      date: new Date(2021, 12, 28),
+    },
+    {
+      id: 'p4',
+      title: 'Maggi',
+      amount: 450,
+      date: new Date(2021, 5, 5),
+    },
+  ];
+
+  function printProductData(productData)
+  {
+    console.log(productData);
+    console.log("App.js");
+  }
+
+  return (
+    <div>
+      <NewProduct pranay={printProductData}/>
+      <Products items={products} />
     </div>
-    </>
   );
 }
 
